@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistem Informasi Geografis Tata Guna Lahan Kabupaten Batang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      .map-container {
+        height: 500px;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+      }
+      .header-gradient {
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <nav
+      class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 py-4 px-6"
+    >
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <div
+            class="w-8 h-8 bg-blue-600 rounded-lg shadow-lg shadow-blue-200"
+          ></div>
+          <span class="text-xl font-extrabold tracking-tight text-slate-800"
+            >SIG-GEOSPATIAL</span
+          >
+        </div>
+        <div
+          class="hidden md:flex gap-8 text-sm font-bold text-slate-500 uppercase tracking-widest"
+        >
+          <a href="#pendahuluan" class="hover:text-blue-600 transition"
+            >Pendahuluan SIG</a
+          >
+          <a href="#peta" class="hover:text-blue-600 transition"
+            >Visualisasi Spasial</a
+          >
+          <a href="#data" class="hover:text-blue-600 transition"
+            >Dataset Lahan</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <header id="pendahuluan" class="header-gradient text-white py-24 px-6">
+      <div class="max-w-4xl mx-auto">
+        <h1
+          class="text-4xl md:text-5xl font-extrabold mb-10 leading-tight text-center"
+        >
+          Implementasi Sistem Informasi Geografis (SIG) <br />
+          <span class="text-blue-400"
+            >Analisis Distribusi Luas Lahan Kabupaten Batang 2019</span
+          >
+        </h1>
+        <div
+          class="text-slate-300 text-lg leading-relaxed text-justify space-y-6"
+        >
+          <p>
+            Sistem Informasi Geografis (SIG) atau
+            <em>Geographic Information System</em> (GIS) merupakan sistem
+            berbasis komputer yang dirancang untuk menangkap, menyimpan,
+            memanipulasi, menganalisis, mengelola, dan menyajikan semua jenis
+            data geografis. Dalam konteks pembangunan daerah, penggunaan SIG
+            menjadi sangat krusial karena mampu mengintegrasikan data statistik
+            tabular dengan informasi lokasi (geospasial) untuk menghasilkan
+            visualisasi yang lebih akurat dan mudah dipahami oleh para pemangku
+            kebijakan.
+          </p>
+          <p>
+            Proyek SIG ini difokuskan pada pemetaan penggunaan lahan di
+            Kabupaten Batang, Jawa Tengah. Dengan memanfaatkan data luas wilayah
+            di setiap kecamatan, kita dapat melihat bagaimana pemanfaatan lahan
+            terbagi antara fungsi pertanian produktif dan fungsi non-pertanian.
+            Analisis ini menggunakan pendekatan spasial untuk mengidentifikasi
+            konsentrasi lahan hijau di wilayah selatan yang berbukit serta
+            tekanan pembangunan di wilayah pesisir utara.
+          </p>
+          <p>
+            Melalui visualisasi ini, diharapkan informasi mengenai ketersediaan
+            lahan seluas lebih dari 65.000 hektar di Kabupaten Batang tidak
+            hanya sekadar angka di atas kertas, tetapi menjadi panduan visual
+            dalam perumusan kebijakan tata ruang, zonasi industri, serta
+            proteksi lahan pertanian pangan berkelanjutan (LP2B) untuk masa
+            depan.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <section id="peta" class="py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">
+            Visualisasi Data Spasial Terpadu
+          </h2>
+          <p class="text-slate-500 max-w-2xl mx-auto italic font-medium">
+            Perbandingan Klasifikasi Lahan Berdasarkan Luas Wilayah per
+            Kecamatan
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-10">
+          <div
+            class="bg-white p-6 rounded-[2.5rem] shadow-2xl shadow-slate-200/50 border border-slate-100"
+          >
+            <div class="flex items-center gap-3 mb-6">
+              <div class="p-2 bg-blue-100 rounded-lg text-blue-700 font-bold">
+                MAP 01
+              </div>
+              <h2 class="text-xl font-bold text-slate-800">
+                Distribusi Lahan Pertanian
+              </h2>
+            </div>
+            <div class="map-container">
+              <iframe
+                src="pertanian/index.html"
+                width="100%"
+                height="100%"
+                frameborder="0"
+              ></iframe>
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-[2.5rem] shadow-2xl shadow-slate-200/50 border border-slate-100"
+          >
+            <div class="flex items-center gap-3 mb-6">
+              <div class="p-2 bg-slate-100 rounded-lg text-slate-700 font-bold">
+                MAP 02
+              </div>
+              <h2 class="text-xl font-bold text-slate-800">
+                Distribusi Lahan Non-Pertanian
+              </h2>
+            </div>
+            <div class="map-container">
+              <iframe
+                src="bukan-pertanian/index.html"
+                width="100%"
+                height="100%"
+                frameborder="0"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="data" class="py-20 bg-white border-y border-slate-200 px-6">
+      <div class="max-w-6xl mx-auto">
+        <h2
+          class="text-3xl font-bold text-slate-900 mb-12 text-center underline decoration-blue-500 underline-offset-8"
+        >
+          Dataset Geospasial Kabupaten Batang
+        </h2>
+        <div
+          class="overflow-x-auto rounded-3xl border border-slate-200 shadow-xl shadow-slate-100/50"
+        >
+          <table class="w-full text-left">
+            <thead
+              class="bg-slate-900 text-white text-xs uppercase tracking-widest font-bold"
+            >
+              <tr>
+                <th class="px-8 py-6">Kecamatan</th>
+                <th class="px-8 py-6 text-right">Lahan Pertanian (Ha)</th>
+                <th class="px-8 py-6 text-right">Non-Pertanian (Ha)</th>
+                <th class="px-8 py-6 text-right">Total Luas (Ha)</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm text-slate-700 divide-y divide-slate-100">
+              <tr>
+                <td class="px-8 py-4 font-semibold">Wonotunggal</td>
+                <td class="px-8 py-4 text-right">4.131</td>
+                <td class="px-8 py-4 text-right">1.105</td>
+                <td class="px-8 py-4 text-right">5.235</td>
+              </tr>
+              <tr>
+                <td class="px-8 py-4 font-semibold">Bandar</td>
+                <td class="px-8 py-4 text-right">5.689</td>
+                <td class="px-8 py-4 text-right">1.644</td>
+                <td class="px-8 py-4 text-right">7.333</td>
+              </tr>
+              <tr>
+                <td class="px-8 py-4 font-semibold">Blado</td>
+                <td class="px-8 py-4 text-right">6.472</td>
+                <td class="px-8 py-4 text-right">1.367</td>
+                <td class="px-8 py-4 text-right">7.839</td>
+              </tr>
+              <tr>
+                <td class="px-8 py-4 font-semibold">Reban</td>
+                <td class="px-8 py-4 text-right">3.931</td>
+                <td class="px-8 py-4 text-right">702</td>
+                <td class="px-8 py-4 text-right">4.633</td>
+              </tr>
+              <tr>
+                <td class="px-8 py-4 font-semibold">Bawang</td>
+                <td class="px-8 py-4 text-right">6.614</td>
+                <td class="px-8 py-4 text-right">771</td>
+                <td class="px-8 py-4 text-right">7.385</td>
+              </tr>
+              <tr>
+                <td class="px-8 py-4 font-semibold">Tersono</td>
+                <td class="px-8 py-4 text-right">4.175</td>
+                <td class="px-8 py-4 text-right">758</td>
+                <td class="px-8 py-4 text-right">4.933</td>
+              </tr>
+              <tr>
+                <td class="px-8 py-4 font-semibold">Gringsing</td>
+                <td class="px-8 py-4 text-right">6.263</td>
+                <td class="px-8 py-4 text-right">1.014</td>
+                <td class="px-8 py-4 text-right">7.277</td>
+              </tr>
+              <tr>
+                <td class="px-8 py-4 font-semibold">Limpung</td>
+                <td class="px-8 py-4 text-right">2.585</td>
+                <td class="px-8 py-4 text-right">756</td>
+                <td class="px-8 py-4 text-right">3.342</td>
+              </tr>
+              <tr>
+                <td class="px-8 py-4 font-semibold">Banyuputih</td>
+                <td class="px-8 py-4 text-right">3.783</td>
+                <td class="px-8 py-4 text-right">659</td>
+                <td class="px-8 py-4 text-right">4.442</td>
+              </tr>
+              <tr>
+                <td class="px-8 py-4 font-semibold">Subah</td>
+                <td class="px-8 py-4 text-right">6.676</td>
+                <td class="px-8 py-4 text-right">1.676</td>
+                <td class="px-8 py-4 text-right">8.352</td>
+              </tr>
+              <tr>
+                <td class="px-8 py-4 font-semibold">Pecalungan</td>
+                <td class="px-8 py-4 text-right">2.612</td>
+                <td class="px-8 py-4 text-right">1.007</td>
+                <td class="px-8 py-4 text-right">3.619</td>
+              </tr>
+              <tr>
+                <td class="px-8 py-4 font-semibold">Tulis</td>
+                <td class="px-8 py-4 text-right">3.033</td>
+                <td class="px-8 py-4 text-right">1.476</td>
+                <td class="px-8 py-4 text-right">4.509</td>
+              </tr>
+              <tr>
+                <td class="px-8 py-4 font-semibold">Kandeman</td>
+                <td class="px-8 py-4 text-right">2.456</td>
+                <td class="px-8 py-4 text-right">1.720</td>
+                <td class="px-8 py-4 text-right">4.176</td>
+              </tr>
+              <tr>
+                <td class="px-8 py-4 font-semibold">Batang</td>
+                <td class="px-8 py-4 text-right">1.680</td>
+                <td class="px-8 py-4 text-right">1.755</td>
+                <td class="px-8 py-4 text-right">3.435</td>
+              </tr>
+              <tr>
+                <td class="px-8 py-4 font-semibold">Warungasem</td>
+                <td class="px-8 py-4 text-right">2.235</td>
+                <td class="px-8 py-4 text-right">121</td>
+                <td class="px-8 py-4 text-right">2.355</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="kesimpulan" class="py-24 px-6 bg-slate-900 text-white">
+      <div class="max-w-4xl mx-auto">
+        <h2
+          class="text-3xl font-extrabold mb-12 text-center tracking-tight uppercase border-b border-blue-500 pb-4 inline-block w-full"
+        >
+          Analisis Akhir & Kesimpulan
+        </h2>
+        <div
+          class="space-y-8 text-slate-300 leading-relaxed text-justify text-lg"
+        >
+          <p>
+            Integrasi teknologi SIG dalam pemetaan Kabupaten Batang tahun 2024
+            memberikan wawasan yang sangat jelas mengenai pola tata guna lahan
+            di setiap wilayah kecamatan. Dari total dataset yang dianalisis,
+            kita dapat menyimpulkan bahwa sektor pertanian masih menjadi
+            kekuatan dominan di Kabupaten Batang. Kecamatan
+            <strong>Subah</strong> tampil sebagai wilayah terluas secara
+            keseluruhan dengan angka mencapai 8.352 Ha, di mana porsi lahan
+            pertaniannya (6.676 Ha) menjadi salah satu penyokong terbesar bagi
+            ketahanan pangan daerah.
+          </p>
+          <p>
+            Namun, hasil SIG juga menyoroti fenomena menarik pada wilayah yang
+            memiliki aktivitas ekonomi tinggi seperti
+            <strong>Kecamatan Batang</strong>. Wilayah ini menunjukkan rasio
+            lahan non-pertanian (1.755 Ha) yang lebih besar dibandingkan lahan
+            pertaniannya (1.680 Ha). Hal ini secara otomatis menegaskan bahwa
+            pusat pemerintahan dan ekonomi di wilayah utara sedang mengalami
+            transformasi dari area agraris menjadi pusat permukiman dan layanan
+            publik yang padat.
+          </p>
+          <p>
+            Sebagai penutup, pemanfaatan SIG ini diharapkan tidak hanya berhenti
+            pada visualisasi, tetapi menjadi dasar bagi pemerintah daerah dalam
+            melakukan intervensi kebijakan yang tepat. Penting untuk terus
+            mempertahankan kecamatan dengan luas pertanian besar seperti Bawang
+            dan Blado sebagai zona hijau, sembari mengelola pertumbuhan kawasan
+            non-pertanian di pusat kota agar tidak terjadi konflik pemanfaatan
+            ruang di masa yang akan datang.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="py-8 text-center text-slate-500 text-xs bg-slate-900 border-t border-slate-800"
+    >
+      <p>© 2025 Analisis SIG Batang Tata Guna Lahan</p>
+    </footer>
+  </body>
+</html>
